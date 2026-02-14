@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ff3b7a"/>
+  <title>Valentine Invite 💘</title>
+
+  <style>
+    :root{
+      --bg1:#ffe6f0;
+      --bg2:#ffffff;
+      --card:#ffffff;
+      --text:#0f0f12;
+      --muted:rgba(15,15,18,.72);
+      --line:rgba(255,59,122,.18);
+      --pink:#ff3b7a;
+      --pink2:#ff6aa0;
+      --shadow: 0 22px 70px rgba(0,0,0,.14);
+      --radius: 26px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 20% 10%, rgba(255,59,122,.20), transparent 55%),
+        radial-gradient(900px 450px at 80% 20%, rgba(255,106,160,.18), transparent 60%),
+        radial-gradient(900px 450px at 50% 100%, rgba(255,59,122,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 18px;
+      position:relative;
+    }
+
+    /* Soft floating blobs */
+    .blob{
+      position:absolute;
+      filter: blur(30px);
+      opacity:.35;
+      pointer-events:none;
+      mix-blend-mode:multiply;
+      animation: blobFloat 10s ease-in-out infinite;
+    }
+    .blob.b1{width:260px;height:260px;left:-50px;top:40px;background:#ff3b7a;border-radius:44% 56% 53% 47%/46% 49% 51% 54%;}
+    .blob.b2{width:320px;height:320px;right:-90px;top:120px;background:#ff9cc3;border-radius:55% 45% 62% 38%/44% 60% 40% 56%; animation-duration:12s;}
+    .blob.b3{width:280px;height:280px;left:40%;bottom:-130px;background:#ffd1e3;border-radius:60% 40% 45% 55%/50% 45% 55% 50%; animation-duration:14s;}
+    @keyframes blobFloat{
+      0%,100%{transform:translateY(0) translateX(0) scale(1)}
+      50%{transform:translateY(18px) translateX(10px) scale(1.03)}
+    }
+
+    .card{
+      width:min(720px, 94vw);
+      background:rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 22px 22px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: linear-gradient(180deg, rgba(255,59,122,.15), rgba(255,59,122,.08));
+      border:1px solid var(--line);
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.2px;
+      color: rgba(194,24,91,.95);
+    }
+
+    .controls{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(15,15,18,.10);
+      background: rgba(255,255,255,.70);
+      color: rgba(15,15,18,.84);
+      font-weight:700;
+      font-size:13px;
+    }
+
+    .toggle{
+      display:inline-flex;
+      border:1px solid rgba(15,15,18,.12);
+      border-radius:999px;
+      overflow:hidden;
+      background: rgba(255,255,255,.70);
+    }
+    .toggle button{
+      border:0;
+      background:transparent;
+      padding:8px 10px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:13px;
+      color: rgba(15,15,18,.70);
+    }
+    .toggle button.active{
+      background: rgba(255,59,122,.12);
+      color: rgba(194,24,91,.95);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .panel{
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(15,15,18,.08);
+      border-radius: 20px;
+      padding: 18px;
+      position:relative;
+    }
+
+    h1{
+      margin: 2px 0 10px;
+      font-size: clamp(26px, 3.2vw, 38px);
+      letter-spacing: -.6px;
+      line-height: 1.04;
+    }
+    .sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size: 15px;
+      line-height:1.35;
+    }
+
+    .nameRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 12px 0 6px;
+    }
+    .field{
+      flex:1;
+      min-width: 210px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      text-align:left;
+    }
+    label{
+      font-size:12px;
+      font-weight:900;
+      color: rgba(15,15,18,.62);
+      letter-spacing:.2px;
+    }
+    input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(15,15,18,.12);
+      background: rgba(255,255,255,.85);
+      outline:none;
+      font-weight:800;
+      color: rgba(15,15,18,.90);
+    }
+    input:focus{border-color: rgba(255,59,122,.35); box-shadow: 0 0 0 4px rgba(255,59,122,.10);}
+
+    .actions{
+      margin-top: 12px;
+      position:relative;
+      height:58px;
+    }
+    .btn{
+      border:0;
+      cursor:pointer;
+      border-radius:999px;
+      padding: 12px 16px;
+      font-weight:950;
+      font-size:15px;
+      user-select:none;
+      transition: transform .08s ease, box-shadow .2s ease, opacity .2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .btn:active{transform:scale(.985)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color:#fff;
+      box-shadow: 0 14px 36px rgba(255,59,122,.28);
+    }
+    .btn.primary:hover{box-shadow: 0 16px 42px rgba(255,59,122,.34)}
+    .btn.ghost{
+      background: rgba(255,255,255,.80);
+      border:1px solid rgba(15,15,18,.12);
+      color: rgba(15,15,18,.85);
+    }
+
+    /* The runaway button sits inside actions */
+    #noBtn{
+      position:absolute;
+      right: 0;
+      top: 0;
+      opacity: .95;
+    }
+
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,59,122,.24), transparent);
+      margin: 16px 0;
+    }
+
+    .reveal{
+      margin-top: 12px;
+      display:none;
+      animation: popIn .35s ease both;
+    }
+    @keyframes popIn{
+      from{opacity:0; transform: translateY(8px) scale(.99)}
+      to{opacity:1; transform: translateY(0) scale(1)}
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:720px){
+      .grid2{grid-template-columns:1fr}
+    }
+
+    .cardMini{
+      background: rgba(255,255,255,.80);
+      border:1px solid rgba(15,15,18,.08);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .miniTitle{
+      margin:0 0 8px;
+      font-weight:1000;
+      letter-spacing:-.2px;
+    }
+    .miniText{
+      margin:0 0 10px;
+      color: var(--muted);
+      line-height:1.35;
+      font-size: 14px;
+    }
+
+    .foodRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .food{
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(15,15,18,.92);
+      color:#fff;
+      font-weight:950;
+      font-size: 13.5px;
+      border:1px solid rgba(255,255,255,.10);
+      transition: transform .1s ease, opacity .2s ease;
+    }
+    .food:hover{opacity:.92}
+    .food:active{transform:scale(.985)}
+    .food.selected{
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .copyRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    .note{
+      margin-top: 10px;
+      color: rgba(15,15,18,.55);
+      font-size: 12.5px;
+      line-height:1.35;
+    }
+
+    /* Floating hearts */
+    .heart{
+      position:absolute;
+      font-size:16px;
+      opacity:.75;
+      pointer-events:none;
+      animation: floatUp linear forwards;
+    }
+    @keyframes floatUp{
+      from{ transform: translateY(0) scale(1); opacity:.95; }
+      to{ transform: translateY(-150px) scale(1.25); opacity:0; }
+    }
+
+    /* Confetti (simple) */
+    .confetti{
+      position:absolute;
+      width:8px;
+      height:12px;
+      opacity:.9;
+      top:-20px;
+      animation: confFall linear forwards;
+      border-radius:3px;
+      pointer-events:none;
+    }
+    @keyframes confFall{
+      to{ transform: translateY(760px) rotate(420deg); opacity:1; }
+    }
+
+    .tiny{
+      font-size:12px;
+      color: rgba(15,15,18,.55);
+      margin-top: 10px;
+    }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .blob{animation:none}
+      .reveal{animation:none}
+      .heart{display:none}
+      .confetti{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <main class="card" id="card" role="main" aria-label="Valentine invitation">
+      <div class="topbar">
+        <div class="pill" id="pill">For Danitza 💘</div>
+
+        <div class="controls">
+          <span class="chip" id="chip">✨ tiny love website</span>
+          <div class="toggle" aria-label="language toggle">
+            <button id="enBtn" class="active" type="button">EN</button>
+            <button id="esBtn" type="button">ES</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="panel">
+          <h1 id="title">Will you be my Valentine?</h1>
+          <p class="sub" id="subtitle">
+            Serious question… but also: I need to know if you want food today 😌
+          </p>
+
+          <div class="nameRow">
+            <div class="field">
+              <label id="lblFrom" for="fromName">From</label>
+              <input id="fromName" type="text" placeholder="Your name" value="Shane">
+            </div>
+            <div class="field">
+              <label id="lblTo" for="toName">To</label>
+              <input id="toName" type="text" placeholder="Her name" value="Danitza">
+            </div>
+          </div>
+
+          <div class="actions" id="actions">
+            <button class="btn primary" id="yesBtn" type="button">YES 💗</button>
+            <button class="btn ghost" id="noBtn" type="button" aria-label="No">NO 😤</button>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="reveal" id="reveal">
+            <div class="grid2">
+              <div class="cardMini">
+                <div class="miniTitle" id="mini1Title">Valentine’s Plan 🍽️</div>
+                <p class="miniText" id="mini1Text">
+                  I’m officially inviting you to dinner. The menu is: whatever you want.
+                  Pick one (or tell me your craving).
+                </p>
+
+                <div class="foodRow" id="foodRow">
+                  <a class="food" href="#" data-choice="Pizza 🍕">Pizza 🍕</a>
+                  <a class="food" href="#" data-choice="Sushi 🍣">Sushi 🍣</a>
+                  <a class="food" href="#" data-choice="Pollo a la brasa 🍗">Pollo a la brasa 🍗</a>
+                  <a class="food" href="#" data-choice="Dessert first 🍰">Dessert first 🍰</a>
+                </div>
+
+                <div class="note" id="foodNote">
+                  Tip: tap one option to select it, then hit “Copy message” or WhatsApp.
+                </div>
+              </div>
+
+              <div class="cardMini">
+                <div class="miniTitle" id="mini2Title">Message 💌</div>
+                <p class="miniText" id="mini2Text">
+                  Send this to me and I’ll handle the rest.
+                </p>
+
+                <div class="copyRow">
+                  <button class="btn ghost" id="copyBtn" type="button">Copy message</button>
+                  <button class="btn primary" id="waBtn" type="button">Send on WhatsApp</button>
+                </div>
+
+                <div class="tiny" id="status"></div>
+
+                <div class="divider" style="margin:14px 0"></div>
+
+                <div class="miniTitle" id="mini3Title">PS</div>
+                <p class="miniText" id="mini3Text">
+                  If you try to press “NO” I’ll assume you’re joking 😌
+                </p>
+
+                <div class="note" id="privacyNote">
+                  (This site is just for fun — it doesn’t collect anything.)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="pill" id="sidePill">✨ Little story</div>
+          <h2 style="margin:10px 0 8px; font-size:18px; letter-spacing:-.2px;" id="sideTitle">
+            A tiny invitation, just for you
+          </h2>
+          <p class="sub" style="margin-bottom:12px" id="sideText">
+            You’re my favourite person. Today I want to spoil you a little — flowers, food, or both.
+          </p>
+
+          <div class="cardMini">
+            <div class="miniTitle" id="sideMiniTitle">Quick choices</div>
+            <p class="miniText" id="sideMiniText">
+              Choose the vibe and I’ll match it:
+            </p>
+            <div class="foodRow">
+              <a class="food" href="#" data-vibe="Cute">Cute 🥹</a>
+              <a class="food" href="#" data-vibe="Romantic">Romantic 💘</a>
+              <a class="food" href="#" data-vibe="Funny">Funny 😄</a>
+              <a class="food" href="#" data-vibe="Luxury">Luxury ✨</a>
+            </div>
+            <div class="note" id="vibeNote">Tap a vibe to include it in the message.</div>
+          </div>
+
+          <div class="tiny" style="margin-top:12px" id="hint">
+            Tip: When you upload to Netlify, the file must be named <b>index.html</b>.
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // ---------- Language content ----------
+    const TEXT = {
+      en: {
+        pill: "For {{to}} 💘",
+        chip: "✨ tiny love website",
+        title: "Will you be my Valentine?",
+        subtitle: "Serious question… but also: I need to know if you want food today 😌",
+        lblFrom: "From",
+        lblTo: "To",
+        yes: "YES 💗",
+        no: "NO 😤",
+        mini1Title: "Valentine’s Plan 🍽️",
+        mini1Text: "I’m officially inviting you to dinner. The menu is: whatever you want. Pick one (or tell me your craving).",
+        foodNote: "Tip: tap one option to select it, then hit “Copy message” or WhatsApp.",
+        mini2Title: "Message 💌",
+        mini2Text: "Send this to me and I’ll handle the rest.",
+        copyBtn: "Copy message",
+        waBtn: "Send on WhatsApp",
+        mini3Title: "PS",
+        mini3Text: "If you try to press “NO” I’ll assume you’re joking 😌",
+        privacyNote: "(This site is just for fun — it doesn’t collect anything.)",
+        sidePill: "✨ Little story",
+        sideTitle: "A tiny invitation, just for you",
+        sideText: "You’re my favourite person. Today I want to spoil you a little — flowers, food, or both.",
+        sideMiniTitle: "Quick choices",
+        sideMiniText: "Choose the vibe and I’ll match it:",
+        vibeNote: "Tap a vibe to include it in the message.",
+        hint: "Tip: When you upload to Netlify, the file must be named index.html.",
+        copied: "Copied ✅",
+        chooseFood: "Pick a food option first 🙂",
+        chooseVibe: "Vibe: {{vibe}} ✅"
+      },
+      es: {
+        pill: "Para {{to}} 💘",
+        chip: "✨ mini web de amor",
+        title: "¿Quieres ser mi San Valentín?",
+        subtitle: "Pregunta seria… pero también: necesito saber si hoy quieres comidita 😌",
+        lblFrom: "De",
+        lblTo: "Para",
+        yes: "SÍ 💗",
+        no: "NO 😤",
+        mini1Title: "Plan de San Valentín 🍽️",
+        mini1Text: "Te invito oficialmente a comer. El menú es: lo que tú quieras. Elige uno (o dime tu antojo).",
+        foodNote: "Tip: toca una opción para seleccionarla y luego dale a “Copiar mensaje” o WhatsApp.",
+        mini2Title: "Mensaje 💌",
+        mini2Text: "Envíamelo y yo me encargo del resto.",
+        copyBtn: "Copiar mensaje",
+        waBtn: "Enviar por WhatsApp",
+        mini3Title: "PD",
+        mini3Text: "Si intentas presionar “NO”, asumiré que estás jugando 😌",
+        privacyNote: "(Esta web es solo por diversión — no guarda nada.)",
+        sidePill: "✨ Mini historia",
+        sideTitle: "Una invitación chiquita, solo para ti",
+        sideText: "Eres mi persona favorita. Hoy quiero consentirte un poquito — flores, comida, o las dos.",
+        sideMiniTitle: "Opciones rápidas",
+        sideMiniText: "Elige el mood y yo me adapto:",
+        vibeNote: "Toca un mood para incluirlo en el mensaje.",
+        hint: "Tip: al subirlo a Netlify, el archivo debe llamarse index.html.",
+        copied: "Copiado ✅",
+        chooseFood: "Primero elige una comida 🙂",
+        chooseVibe: "Mood: {{vibe}} ✅"
+      }
+    };
+
+    // ---------- Elements ----------
+    const card = document.getElementById("card");
+    const enBtn = document.getElementById("enBtn");
+    const esBtn = document.getElementById("esBtn");
+
+    const pill = document.getElementById("pill");
+    const chip = document.getElementById("chip");
+    const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
+    const lblFrom = document.getElementById("lblFrom");
+    const lblTo = document.getElementById("lblTo");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const reveal = document.getElementById("reveal");
+
+    const mini1Title = document.getElementById("mini1Title");
+    const mini1Text = document.getElementById("mini1Text");
+    const foodNote = document.getElementById("foodNote");
+    const mini2Title = document.getElementById("mini2Title");
+    const mini2Text = document.getElementById("mini2Text");
+    const copyBtn = document.getElementById("copyBtn");
+    const waBtn = document.getElementById("waBtn");
+    const mini3Title = document.getElementById("mini3Title");
+    const mini3Text = document.getElementById("mini3Text");
+    const privacyNote = document.getElementById("privacyNote");
+
+    const sidePill = document.getElementById("sidePill");
+    const sideTitle = document.getElementById("sideTitle");
+    const sideText = document.getElementById("sideText");
+    const sideMiniTitle = document.getElementById("sideMiniTitle");
+    const sideMiniText = document.getElementById("sideMiniText");
+    const vibeNote = document.getElementById("vibeNote");
+    const hint = document.getElementById("hint");
+
+    const fromName = document.getElementById("fromName");
+    const toName = document.getElementById("toName");
+    const status = document.getElementById("status");
+
+    let lang = "en";
+    let selectedFood = "";
+    let selectedVibe = "";
+
+    // ---------- Helpers ----------
+    function t(key){
+      return TEXT[lang][key] || key;
+    }
+    function format(str, vars){
+      return str.replace(/\{\{(\w+)\}\}/g, (_,k)=> (vars[k] ?? ""));
+    }
+
+    function applyLanguage(){
+      enBtn.classList.toggle("active", lang === "en");
+      esBtn.classList.toggle("active", lang === "es");
+
+      pill.textContent = format(t("pill"), {to: toName.value || "Danitza"});
+      chip.textContent = t("chip");
+      title.textContent = t("title");
+      subtitle.textContent = t("subtitle");
+      lblFrom.textContent = t("lblFrom");
+      lblTo.textContent = t("lblTo");
+      yesBtn.textContent = t("yes");
+      noBtn.textContent = t("no");
+
+      mini1Title.textContent = t("mini1Title");
+      mini1Text.textContent = t("mini1Text");
+      foodNote.textContent = t("foodNote");
+      mini2Title.textContent = t("mini2Title");
+      mini2Text.textContent = t("mini2Text");
+      copyBtn.textContent = t("copyBtn");
+      waBtn.textContent = t("waBtn");
+      mini3Title.textContent = t("mini3Title");
+      mini3Text.textContent = t("mini3Text");
+      privacyNote.textContent = t("privacyNote");
+
+      sidePill.textContent = t("sidePill");
+      sideTitle.textContent = t("sideTitle");
+      sideText.textContent = t("sideText");
+      sideMiniTitle.textContent = t("sideMiniTitle");
+      sideMiniText.textContent = t("sideMiniText");
+      vibeNote.textContent = t("vibeNote");
+      hint.innerHTML = `Tip: When you upload to Netlify, the file must be named <b>index.html</b>.`;
+      if(lang==="es"){
+        hint.innerHTML = `Tip: al subirlo a Netlify, el archivo debe llamarse <b>index.html</b>.`;
+      }
+
+      // refresh status text if vibe set
+      if(selectedVibe){
+        status.textContent = format(t("chooseVibe"), {vibe: selectedVibe});
+      }
+    }
+
+    function popHeart(times=1){
+      for(let i=0;i<times;i++){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = Math.random()>.5 ? "💖" : "💘";
+        const r = card.getBoundingClientRect();
+        const x = 18 + Math.random() * (r.width - 36);
+        const y = r.height - 24;
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        heart.style.animationDuration = (900 + Math.random()*700) + "ms";
+        card.appendChild(heart);
+        setTimeout(()=>heart.remove(), 1700);
+      }
+    }
+
+    function confettiBurst(n=22){
+      const colors = ["#ff3b7a","#ff6aa0","#ffd1e3","#111111","#ffffff"];
+      const r = card.getBoundingClientRect();
+      for(let i=0;i<n;i++){
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = (Math.random() * r.width) + "px";
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.animationDuration = (900 + Math.random()*900) + "ms";
+        c.style.transform = `translateY(0) rotate(${Math.random()*180}deg)`;
+        card.appendChild(c);
+        setTimeout(()=>c.remove(), 2200);
+      }
+    }
+
+    function buildMessage(){
+      const from = fromName.value?.trim() || "Me";
+      const to = toName.value?.trim() || "you";
+
+      if(lang === "en"){
+        let msg = `Hey ${to} 💘\nWill you be my Valentine?\n\n`;
+        msg += `Food invite: ${selectedFood || "your choice"}\n`;
+        if(selectedVibe) msg += `Vibe: ${selectedVibe}\n`;
+        msg += `\nReply with what you want and I’ll order it.\n— ${from}`;
+        return msg;
+      } else {
+        let msg = `Hola ${to} 💘\n¿Quieres ser mi San Valentín?\n\n`;
+        msg += `Comidita: ${selectedFood || "lo que tú quieras"}\n`;
+        if(selectedVibe) msg += `Mood: ${selectedVibe}\n`;
+        msg += `\nRespóndeme qué quieres y yo lo pido.\n— ${from}`;
+        return msg;
+      }
+    }
+
+    // ---------- Runaway NO button ----------
+    function moveNoButton(){
+      const area = document.getElementById("actions").getBoundingClientRect();
+      const btn = noBtn.getBoundingClientRect();
+      const pad = 6;
+      const maxX = area.width - btn.width - pad;
+      const maxY = area.height - btn.height - pad;
+
+      const x = Math.max(pad, Math.floor(Math.random()*maxX));
+      const y = Math.max(pad, Math.floor(Math.random()*maxY));
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+      noBtn.style.right = "auto"; // switch from right-positioned to absolute
+      popHeart(1);
+    }
+
+    // initial placement
+    noBtn.style.right = "0px";
+    noBtn.style.top = "0px";
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("focus", moveNoButton);
+    noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoButton(); }, {passive:false});
+
+    // ---------- YES reveals ----------
+    yesBtn.addEventListener("click", ()=>{
+      reveal.style.display = "block";
+      confettiBurst(24);
+      popHeart(10);
+
+      // calm the no button after yes
+      noBtn.style.opacity = 0.25;
+      noBtn.style.pointerEvents = "none";
+
+      // update pill
+      pill.textContent = format(t("pill"), {to: toName.value || "Danitza"});
+    });
+
+    // ---------- Food selection ----------
+    document.querySelectorAll("#foodRow .food").forEach(a=>{
+      a.addEventListener("click", (e)=>{
+        e.preventDefault();
+        document.querySelectorAll("#foodRow .food").forEach(x=>x.classList.remove("selected"));
+        a.classList.add("selected");
+        selectedFood = a.getAttribute("data-choice");
+        status.textContent = selectedFood ? `Selected: ${selectedFood} ✅` : "";
+        if(lang==="es" && selectedFood) status.textContent = `Elegido: ${selectedFood} ✅`;
+        popHeart(2);
+      });
+    });
+
+    // ---------- Vibe selection ----------
+    document.querySelectorAll(".foodRow .food").forEach(a=>{
+      // only those with data-vibe in sidebar
+      if(!a.hasAttribute("data-vibe")) return;
+      a.addEventListener("click", (e)=>{
+        e.preventDefault();
+        // unselect vibe siblings (in sidebar container)
+        const container = a.closest(".cardMini");
+        container.querySelectorAll(".food[data-vibe]").forEach(x=>x.classList.remove("selected"));
+        a.classList.add("selected");
+        selectedVibe = a.getAttribute("data-vibe");
+        status.textContent = format(t("chooseVibe"), {vibe: selectedVibe});
+        popHeart(2);
+      });
+    });
+
+    // ---------- Copy / WhatsApp ----------
+    copyBtn.addEventListener("click", async ()=>{
+      // let them copy even if no food picked, but nudge if empty
+      if(!selectedFood){
+        status.textContent = t("chooseFood");
+        popHeart(1);
+        return;
+      }
+      const msg = buildMessage();
+      try{
+        await navigator.clipboard.writeText(msg);
+        status.textContent = t("copied");
+        popHeart(3);
+      }catch(err){
+        // fallback prompt
+        window.prompt("Copy this message:", msg);
+      }
+    });
+
+    waBtn.addEventListener("click", ()=>{
+      if(!selectedFood){
+        status.textContent = t("chooseFood");
+        popHeart(1);
+        return;
+      }
+      const msg = buildMessage();
+      const url = "https://wa.me/?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank", "noopener,noreferrer");
+      popHeart(3);
+    });
+
+    // ---------- Language toggle ----------
+    enBtn.addEventListener("click", ()=>{ lang="en"; applyLanguage(); });
+    esBtn.addEventListener("click", ()=>{ lang="es"; applyLanguage(); });
+
+    // Update pill when name changes
+    toName.addEventListener("input", ()=>{ pill.textContent = format(t("pill"), {to: toName.value || "Danitza"}); });
+    applyLanguage();
+  </script>
+</body>
+</html>
