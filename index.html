@@ -4,22 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ff3b7a"/>
-  <title>Valentine Invite 💘</title>
+  <title>For Dani 💘</title>
 
   <style>
     :root{
       --bg1:#ffe6f0;
       --bg2:#ffffff;
-      --card:#ffffff;
+      --card:rgba(255,255,255,.84);
       --text:#0f0f12;
       --muted:rgba(15,15,18,.72);
       --line:rgba(255,59,122,.18);
       --pink:#ff3b7a;
       --pink2:#ff6aa0;
       --shadow: 0 22px 70px rgba(0,0,0,.14);
-      --radius: 26px;
+      --radius: 28px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -33,7 +32,6 @@
         linear-gradient(180deg, var(--bg1), var(--bg2));
       overflow-x:hidden;
     }
-
     .wrap{
       min-height:100%;
       display:flex;
@@ -61,14 +59,14 @@
     }
 
     .card{
-      width:min(720px, 94vw);
-      background:rgba(255,255,255,.82);
+      width:min(900px, 94vw);
+      background:var(--card);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border:1px solid rgba(255,255,255,.55);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding: 22px 22px 18px;
+      padding: 22px;
       position:relative;
       overflow:hidden;
     }
@@ -79,8 +77,8 @@
       justify-content:space-between;
       gap:12px;
       margin-bottom:14px;
+      flex-wrap:wrap;
     }
-
     .pill{
       display:inline-flex;
       align-items:center;
@@ -89,20 +87,11 @@
       border-radius:999px;
       background: linear-gradient(180deg, rgba(255,59,122,.15), rgba(255,59,122,.08));
       border:1px solid var(--line);
-      font-weight:800;
+      font-weight:950;
       font-size:13px;
       letter-spacing:.2px;
       color: rgba(194,24,91,.95);
     }
-
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
     .chip{
       display:inline-flex;
       align-items:center;
@@ -112,7 +101,7 @@
       border:1px solid rgba(15,15,18,.10);
       background: rgba(255,255,255,.70);
       color: rgba(15,15,18,.84);
-      font-weight:700;
+      font-weight:900;
       font-size:13px;
     }
 
@@ -127,7 +116,7 @@
       border:0;
       background:transparent;
       padding:8px 10px;
-      font-weight:900;
+      font-weight:1000;
       cursor:pointer;
       font-size:13px;
       color: rgba(15,15,18,.70);
@@ -139,33 +128,69 @@
 
     .hero{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:18px;
       align-items:stretch;
     }
-    @media (max-width:720px){
+    @media (max-width:820px){
       .hero{grid-template-columns:1fr}
     }
 
     .panel{
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       border:1px solid rgba(15,15,18,.08);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 18px;
       position:relative;
     }
 
+    .photoWrap{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-bottom: 10px;
+    }
+    .avatar{
+      width:76px;
+      height:76px;
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(15,15,18,.10);
+      background: linear-gradient(135deg, rgba(255,59,122,.18), rgba(255,106,160,.12));
+      box-shadow: 0 14px 35px rgba(0,0,0,.10);
+      flex: 0 0 auto;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .photoText .small{
+      margin:0;
+      font-weight:950;
+      font-size:12px;
+      color: rgba(15,15,18,.60);
+      letter-spacing:.25px;
+      text-transform: uppercase;
+    }
+    .photoText .big{
+      margin:2px 0 0;
+      font-weight:1000;
+      letter-spacing:-.3px;
+    }
+
     h1{
-      margin: 2px 0 10px;
-      font-size: clamp(26px, 3.2vw, 38px);
-      letter-spacing: -.6px;
+      margin: 6px 0 10px;
+      font-size: clamp(26px, 3.1vw, 40px);
+      letter-spacing: -.8px;
       line-height: 1.04;
     }
     .sub{
       margin:0 0 14px;
       color:var(--muted);
       font-size: 15px;
-      line-height:1.35;
+      line-height:1.4;
     }
 
     .nameRow{
@@ -184,7 +209,7 @@
     }
     label{
       font-size:12px;
-      font-weight:900;
+      font-weight:950;
       color: rgba(15,15,18,.62);
       letter-spacing:.2px;
     }
@@ -193,9 +218,9 @@
       padding:12px 12px;
       border-radius:14px;
       border:1px solid rgba(15,15,18,.12);
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.88);
       outline:none;
-      font-weight:800;
+      font-weight:850;
       color: rgba(15,15,18,.90);
     }
     input:focus{border-color: rgba(255,59,122,.35); box-shadow: 0 0 0 4px rgba(255,59,122,.10);}
@@ -210,7 +235,7 @@
       cursor:pointer;
       border-radius:999px;
       padding: 12px 16px;
-      font-weight:950;
+      font-weight:1000;
       font-size:15px;
       user-select:none;
       transition: transform .08s ease, box-shadow .2s ease, opacity .2s ease;
@@ -227,17 +252,15 @@
     }
     .btn.primary:hover{box-shadow: 0 16px 42px rgba(255,59,122,.34)}
     .btn.ghost{
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.82);
       border:1px solid rgba(15,15,18,.12);
       color: rgba(15,15,18,.85);
     }
-
-    /* The runaway button sits inside actions */
     #noBtn{
       position:absolute;
       right: 0;
       top: 0;
-      opacity: .95;
+      opacity: .98;
     }
 
     .divider{
@@ -261,14 +284,14 @@
       grid-template-columns:1fr 1fr;
       gap:14px;
     }
-    @media (max-width:720px){
+    @media (max-width:820px){
       .grid2{grid-template-columns:1fr}
     }
 
     .cardMini{
-      background: rgba(255,255,255,.80);
+      background: rgba(255,255,255,.84);
       border:1px solid rgba(15,15,18,.08);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 14px;
     }
 
@@ -276,11 +299,12 @@
       margin:0 0 8px;
       font-weight:1000;
       letter-spacing:-.2px;
+      font-size:15px;
     }
     .miniText{
       margin:0 0 10px;
       color: var(--muted);
-      line-height:1.35;
+      line-height:1.4;
       font-size: 14px;
     }
 
@@ -318,11 +342,13 @@
       margin-top: 10px;
     }
 
-    .note{
-      margin-top: 10px;
-      color: rgba(15,15,18,.55);
-      font-size: 12.5px;
-      line-height:1.35;
+    .spotifyFrame{
+      width:100%;
+      height:152px;
+      border:0;
+      border-radius:18px;
+      overflow:hidden;
+      background: rgba(15,15,18,.06);
     }
 
     /* Floating hearts */
@@ -335,10 +361,10 @@
     }
     @keyframes floatUp{
       from{ transform: translateY(0) scale(1); opacity:.95; }
-      to{ transform: translateY(-150px) scale(1.25); opacity:0; }
+      to{ transform: translateY(-160px) scale(1.25); opacity:0; }
     }
 
-    /* Confetti (simple) */
+    /* Confetti */
     .confetti{
       position:absolute;
       width:8px;
@@ -350,21 +376,20 @@
       pointer-events:none;
     }
     @keyframes confFall{
-      to{ transform: translateY(760px) rotate(420deg); opacity:1; }
+      to{ transform: translateY(820px) rotate(420deg); opacity:1; }
     }
 
     .tiny{
       font-size:12px;
-      color: rgba(15,15,18,.55);
+      color: rgba(15,15,18,.58);
       margin-top: 10px;
+      line-height:1.35;
     }
 
-    /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       .blob{animation:none}
       .reveal{animation:none}
-      .heart{display:none}
-      .confetti{display:none}
+      .heart,.confetti{display:none}
     }
   </style>
 </head>
@@ -375,12 +400,12 @@
     <div class="blob b2"></div>
     <div class="blob b3"></div>
 
-    <main class="card" id="card" role="main" aria-label="Valentine invitation">
+    <main class="card" id="card" role="main" aria-label="Friend Valentine invitation">
       <div class="topbar">
-        <div class="pill" id="pill">For Danitza 💘</div>
+        <div class="pill" id="pill">For Dani 💘</div>
 
-        <div class="controls">
-          <span class="chip" id="chip">✨ tiny love website</span>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+          <div class="chip" id="chip">✨ friend valentine invite</div>
           <div class="toggle" aria-label="language toggle">
             <button id="enBtn" class="active" type="button">EN</button>
             <button id="esBtn" type="button">ES</button>
@@ -389,10 +414,22 @@
       </div>
 
       <section class="hero">
+        <!-- LEFT -->
         <div class="panel">
-          <h1 id="title">Will you be my Valentine?</h1>
+          <div class="photoWrap">
+            <div class="avatar">
+              <!-- OPTIONAL: replace PHOTO_URL_HERE with your photo file/link. If blank, it will hide automatically. -->
+              <img id="photo" alt="Photo" src="PHOTO_URL_HERE" onerror="this.style.display='none'">
+            </div>
+            <div class="photoText">
+              <p class="small" id="taglineSmall">Valentine’s (friend edition)</p>
+              <p class="big" id="taglineBig">A tiny website… to ask a very serious question 😄</p>
+            </div>
+          </div>
+
+          <h1 id="title">Will you be my “Friend Valentine”? 💘🤝</h1>
           <p class="sub" id="subtitle">
-            Serious question… but also: I need to know if you want food today 😌
+            No pressure. Just vibes. And possibly food.
           </p>
 
           <div class="nameRow">
@@ -402,12 +439,12 @@
             </div>
             <div class="field">
               <label id="lblTo" for="toName">To</label>
-              <input id="toName" type="text" placeholder="Her name" value="Danitza">
+              <input id="toName" type="text" placeholder="Their name" value="Dani">
             </div>
           </div>
 
           <div class="actions" id="actions">
-            <button class="btn primary" id="yesBtn" type="button">YES 💗</button>
+            <button class="btn primary" id="yesBtn" type="button">YES 🤝💘</button>
             <button class="btn ghost" id="noBtn" type="button" aria-label="No">NO 😤</button>
           </div>
 
@@ -415,30 +452,38 @@
 
           <div class="reveal" id="reveal">
             <div class="grid2">
+              <!-- Food (UPDATED OPTIONS) -->
               <div class="cardMini">
-                <div class="miniTitle" id="mini1Title">Valentine’s Plan 🍽️</div>
-                <p class="miniText" id="mini1Text">
-                  I’m officially inviting you to dinner. The menu is: whatever you want.
-                  Pick one (or tell me your craving).
+                <div class="miniTitle" id="foodTitle">Important follow-up question 🍽️</div>
+                <p class="miniText" id="foodText">
+                  Cool. Now… what are we eating? Pick one:
                 </p>
 
                 <div class="foodRow" id="foodRow">
-                  <a class="food" href="#" data-choice="Pizza 🍕">Pizza 🍕</a>
-                  <a class="food" href="#" data-choice="Sushi 🍣">Sushi 🍣</a>
-                  <a class="food" href="#" data-choice="Pollo a la brasa 🍗">Pollo a la brasa 🍗</a>
-                  <a class="food" href="#" data-choice="Dessert first 🍰">Dessert first 🍰</a>
+                  <a class="food" href="#"
+                     data-choice-en="Pizza 🍕"
+                     data-choice-es="Pizza 🍕">Pizza 🍕</a>
+
+                  <a class="food" href="#"
+                     data-choice-en="Pollo a la brasa 🍗"
+                     data-choice-es="Pollo a la brasa 🍗">Pollo a la brasa 🍗</a>
+
+                  <a class="food" href="#"
+                     data-choice-en="Dessert first 🍰"
+                     data-choice-es="Postre primero 🍰">Dessert first 🍰</a>
+
+                  <a class="food" href="#"
+                     data-choice-en="Food + dessert 🍔🍰"
+                     data-choice-es="Comida + postre 🍔🍰">Food + dessert 🍔🍰</a>
                 </div>
 
-                <div class="note" id="foodNote">
-                  Tip: tap one option to select it, then hit “Copy message” or WhatsApp.
-                </div>
+                <div class="tiny" id="foodHint">Pick one, then copy the message or WhatsApp it.</div>
               </div>
 
+              <!-- Message + Spotify -->
               <div class="cardMini">
-                <div class="miniTitle" id="mini2Title">Message 💌</div>
-                <p class="miniText" id="mini2Text">
-                  Send this to me and I’ll handle the rest.
-                </p>
+                <div class="miniTitle" id="msgTitle">Message 💌</div>
+                <p class="miniText" id="msgText">Send this and I’ll handle the rest.</p>
 
                 <div class="copyRow">
                   <button class="btn ghost" id="copyBtn" type="button">Copy message</button>
@@ -449,44 +494,46 @@
 
                 <div class="divider" style="margin:14px 0"></div>
 
-                <div class="miniTitle" id="mini3Title">PS</div>
-                <p class="miniText" id="mini3Text">
-                  If you try to press “NO” I’ll assume you’re joking 😌
-                </p>
+                <div class="miniTitle" id="songTitle">Our song 🎶</div>
+                <p class="miniText" id="songText">Press play for maximum friend-valentine energy 😌</p>
 
-                <div class="note" id="privacyNote">
-                  (This site is just for fun — it doesn’t collect anything.)
-                </div>
+                <iframe
+                  class="spotifyFrame"
+                  id="spotify"
+                  src="https://open.spotify.com/embed/track/7MlDNspYwfqnHxORufupwq"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  title="Spotify"
+                ></iframe>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- RIGHT -->
         <aside class="panel">
-          <div class="pill" id="sidePill">✨ Little story</div>
-          <h2 style="margin:10px 0 8px; font-size:18px; letter-spacing:-.2px;" id="sideTitle">
-            A tiny invitation, just for you
+          <div class="pill" id="vibePill">✨ Vibe selector</div>
+          <h2 style="margin:10px 0 8px; font-size:18px; letter-spacing:-.2px;" id="vibeTitle">
+            Choose the vibe and I’ll match it
           </h2>
-          <p class="sub" style="margin-bottom:12px" id="sideText">
-            You’re my favourite person. Today I want to spoil you a little — flowers, food, or both.
+          <p class="sub" style="margin-bottom:12px" id="vibeText">
+            Cute, funny, “we’re totally just friends”, or extra ✨
           </p>
 
           <div class="cardMini">
-            <div class="miniTitle" id="sideMiniTitle">Quick choices</div>
-            <p class="miniText" id="sideMiniText">
-              Choose the vibe and I’ll match it:
-            </p>
-            <div class="foodRow">
-              <a class="food" href="#" data-vibe="Cute">Cute 🥹</a>
-              <a class="food" href="#" data-vibe="Romantic">Romantic 💘</a>
-              <a class="food" href="#" data-vibe="Funny">Funny 😄</a>
-              <a class="food" href="#" data-vibe="Luxury">Luxury ✨</a>
-            </div>
-            <div class="note" id="vibeNote">Tap a vibe to include it in the message.</div>
-          </div>
+            <div class="miniTitle" id="vibeMiniTitle">Quick vibes</div>
+            <p class="miniText" id="vibeMiniText">Tap one to include it in the message:</p>
 
-          <div class="tiny" style="margin-top:12px" id="hint">
-            Tip: When you upload to Netlify, the file must be named <b>index.html</b>.
+            <div class="foodRow" id="vibeRow">
+              <a class="food" href="#" data-vibe-en="Cute 🥹" data-vibe-es="Cute 🥹">Cute 🥹</a>
+              <a class="food" href="#" data-vibe-en="Funny 😄" data-vibe-es="Gracioso 😄">Funny 😄</a>
+              <a class="food" href="#" data-vibe-en="Just friends 🤝" data-vibe-es="Solo amigos 🤝">Just friends 🤝</a>
+              <a class="food" href="#" data-vibe-en="Extra ✨" data-vibe-es="Extra ✨">Extra ✨</a>
+            </div>
+
+            <div class="tiny" id="psText" style="margin-top:12px">
+              PS: If you try to press “NO”… it’s legally required to run away.
+            </div>
           </div>
         </aside>
       </section>
@@ -494,161 +541,176 @@
   </div>
 
   <script>
-    // ---------- Language content ----------
-    const TEXT = {
-      en: {
-        pill: "For {{to}} 💘",
-        chip: "✨ tiny love website",
-        title: "Will you be my Valentine?",
-        subtitle: "Serious question… but also: I need to know if you want food today 😌",
-        lblFrom: "From",
-        lblTo: "To",
-        yes: "YES 💗",
-        no: "NO 😤",
-        mini1Title: "Valentine’s Plan 🍽️",
-        mini1Text: "I’m officially inviting you to dinner. The menu is: whatever you want. Pick one (or tell me your craving).",
-        foodNote: "Tip: tap one option to select it, then hit “Copy message” or WhatsApp.",
-        mini2Title: "Message 💌",
-        mini2Text: "Send this to me and I’ll handle the rest.",
-        copyBtn: "Copy message",
-        waBtn: "Send on WhatsApp",
-        mini3Title: "PS",
-        mini3Text: "If you try to press “NO” I’ll assume you’re joking 😌",
-        privacyNote: "(This site is just for fun — it doesn’t collect anything.)",
-        sidePill: "✨ Little story",
-        sideTitle: "A tiny invitation, just for you",
-        sideText: "You’re my favourite person. Today I want to spoil you a little — flowers, food, or both.",
-        sideMiniTitle: "Quick choices",
-        sideMiniText: "Choose the vibe and I’ll match it:",
-        vibeNote: "Tap a vibe to include it in the message.",
-        hint: "Tip: When you upload to Netlify, the file must be named index.html.",
-        copied: "Copied ✅",
-        chooseFood: "Pick a food option first 🙂",
-        chooseVibe: "Vibe: {{vibe}} ✅"
-      },
-      es: {
-        pill: "Para {{to}} 💘",
-        chip: "✨ mini web de amor",
-        title: "¿Quieres ser mi San Valentín?",
-        subtitle: "Pregunta seria… pero también: necesito saber si hoy quieres comidita 😌",
-        lblFrom: "De",
-        lblTo: "Para",
-        yes: "SÍ 💗",
-        no: "NO 😤",
-        mini1Title: "Plan de San Valentín 🍽️",
-        mini1Text: "Te invito oficialmente a comer. El menú es: lo que tú quieras. Elige uno (o dime tu antojo).",
-        foodNote: "Tip: toca una opción para seleccionarla y luego dale a “Copiar mensaje” o WhatsApp.",
-        mini2Title: "Mensaje 💌",
-        mini2Text: "Envíamelo y yo me encargo del resto.",
-        copyBtn: "Copiar mensaje",
-        waBtn: "Enviar por WhatsApp",
-        mini3Title: "PD",
-        mini3Text: "Si intentas presionar “NO”, asumiré que estás jugando 😌",
-        privacyNote: "(Esta web es solo por diversión — no guarda nada.)",
-        sidePill: "✨ Mini historia",
-        sideTitle: "Una invitación chiquita, solo para ti",
-        sideText: "Eres mi persona favorita. Hoy quiero consentirte un poquito — flores, comida, o las dos.",
-        sideMiniTitle: "Opciones rápidas",
-        sideMiniText: "Elige el mood y yo me adapto:",
-        vibeNote: "Toca un mood para incluirlo en el mensaje.",
-        hint: "Tip: al subirlo a Netlify, el archivo debe llamarse index.html.",
-        copied: "Copiado ✅",
-        chooseFood: "Primero elige una comida 🙂",
-        chooseVibe: "Mood: {{vibe}} ✅"
-      }
-    };
-
-    // ---------- Elements ----------
-    const card = document.getElementById("card");
-    const enBtn = document.getElementById("enBtn");
-    const esBtn = document.getElementById("esBtn");
-
-    const pill = document.getElementById("pill");
-    const chip = document.getElementById("chip");
-    const title = document.getElementById("title");
-    const subtitle = document.getElementById("subtitle");
-    const lblFrom = document.getElementById("lblFrom");
-    const lblTo = document.getElementById("lblTo");
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-    const reveal = document.getElementById("reveal");
-
-    const mini1Title = document.getElementById("mini1Title");
-    const mini1Text = document.getElementById("mini1Text");
-    const foodNote = document.getElementById("foodNote");
-    const mini2Title = document.getElementById("mini2Title");
-    const mini2Text = document.getElementById("mini2Text");
-    const copyBtn = document.getElementById("copyBtn");
-    const waBtn = document.getElementById("waBtn");
-    const mini3Title = document.getElementById("mini3Title");
-    const mini3Text = document.getElementById("mini3Text");
-    const privacyNote = document.getElementById("privacyNote");
-
-    const sidePill = document.getElementById("sidePill");
-    const sideTitle = document.getElementById("sideTitle");
-    const sideText = document.getElementById("sideText");
-    const sideMiniTitle = document.getElementById("sideMiniTitle");
-    const sideMiniText = document.getElementById("sideMiniText");
-    const vibeNote = document.getElementById("vibeNote");
-    const hint = document.getElementById("hint");
-
-    const fromName = document.getElementById("fromName");
-    const toName = document.getElementById("toName");
-    const status = document.getElementById("status");
-
+    // ---------- State ----------
     let lang = "en";
     let selectedFood = "";
     let selectedVibe = "";
 
-    // ---------- Helpers ----------
-    function t(key){
-      return TEXT[lang][key] || key;
-    }
-    function format(str, vars){
-      return str.replace(/\{\{(\w+)\}\}/g, (_,k)=> (vars[k] ?? ""));
-    }
+    // ---------- Elements ----------
+    const card = document.getElementById("card");
+    const pill = document.getElementById("pill");
+    const chip = document.getElementById("chip");
 
-    function applyLanguage(){
-      enBtn.classList.toggle("active", lang === "en");
-      esBtn.classList.toggle("active", lang === "es");
+    const enBtn = document.getElementById("enBtn");
+    const esBtn = document.getElementById("esBtn");
 
-      pill.textContent = format(t("pill"), {to: toName.value || "Danitza"});
-      chip.textContent = t("chip");
-      title.textContent = t("title");
-      subtitle.textContent = t("subtitle");
-      lblFrom.textContent = t("lblFrom");
-      lblTo.textContent = t("lblTo");
-      yesBtn.textContent = t("yes");
-      noBtn.textContent = t("no");
+    const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
+    const taglineSmall = document.getElementById("taglineSmall");
+    const taglineBig = document.getElementById("taglineBig");
 
-      mini1Title.textContent = t("mini1Title");
-      mini1Text.textContent = t("mini1Text");
-      foodNote.textContent = t("foodNote");
-      mini2Title.textContent = t("mini2Title");
-      mini2Text.textContent = t("mini2Text");
-      copyBtn.textContent = t("copyBtn");
-      waBtn.textContent = t("waBtn");
-      mini3Title.textContent = t("mini3Title");
-      mini3Text.textContent = t("mini3Text");
-      privacyNote.textContent = t("privacyNote");
+    const lblFrom = document.getElementById("lblFrom");
+    const lblTo = document.getElementById("lblTo");
 
-      sidePill.textContent = t("sidePill");
-      sideTitle.textContent = t("sideTitle");
-      sideText.textContent = t("sideText");
-      sideMiniTitle.textContent = t("sideMiniTitle");
-      sideMiniText.textContent = t("sideMiniText");
-      vibeNote.textContent = t("vibeNote");
-      hint.innerHTML = `Tip: When you upload to Netlify, the file must be named <b>index.html</b>.`;
-      if(lang==="es"){
-        hint.innerHTML = `Tip: al subirlo a Netlify, el archivo debe llamarse <b>index.html</b>.`;
+    const fromName = document.getElementById("fromName");
+    const toName = document.getElementById("toName");
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const actions = document.getElementById("actions");
+    const reveal = document.getElementById("reveal");
+
+    const foodTitle = document.getElementById("foodTitle");
+    const foodText = document.getElementById("foodText");
+    const foodHint = document.getElementById("foodHint");
+
+    const msgTitle = document.getElementById("msgTitle");
+    const msgText = document.getElementById("msgText");
+    const copyBtn = document.getElementById("copyBtn");
+    const waBtn = document.getElementById("waBtn");
+    const status = document.getElementById("status");
+
+    const songTitle = document.getElementById("songTitle");
+    const songText = document.getElementById("songText");
+
+    const vibePill = document.getElementById("vibePill");
+    const vibeTitle = document.getElementById("vibeTitle");
+    const vibeText = document.getElementById("vibeText");
+    const vibeMiniTitle = document.getElementById("vibeMiniTitle");
+    const vibeMiniText = document.getElementById("vibeMiniText");
+    const psText = document.getElementById("psText");
+
+    // ---------- Copy for both languages ----------
+    const COPY = {
+      en: {
+        pill: (to) => `For ${to} 💘`,
+        chip: "✨ friend valentine invite",
+        taglineSmall: "Valentine’s (friend edition)",
+        taglineBig: "A tiny website… to ask a very serious question 😄",
+        title: "Will you be my “Friend Valentine”? 💘🤝",
+        subtitle: "No pressure. Just vibes. And possibly food.",
+        lblFrom: "From",
+        lblTo: "To",
+        yes: "YES 🤝💘",
+        no: "NO 😤",
+        foodTitle: "Important follow-up question 🍽️",
+        foodText: "Cool. Now… what are we eating? Pick one:",
+        foodHint: "Pick one, then copy the message or WhatsApp it.",
+        msgTitle: "Message 💌",
+        msgText: "Send this and I’ll handle the rest.",
+        copyBtn: "Copy message",
+        waBtn: "Send on WhatsApp",
+        needFood: "Pick a food option first 🙂",
+        copied: "Copied ✅",
+        songTitle: "Our song 🎶",
+        songText: "Press play for maximum friend-valentine energy 😌",
+        vibePill: "✨ Vibe selector",
+        vibeTitle: "Choose the vibe and I’ll match it",
+        vibeText: "Cute, funny, “we’re totally just friends”, or extra ✨",
+        vibeMiniTitle: "Quick vibes",
+        vibeMiniText: "Tap one to include it in the message:",
+        ps: "PS: If you try to press “NO”… it’s legally required to run away."
+      },
+      es: {
+        pill: (to) => `Para ${to} 💘`,
+        chip: "✨ invitación de “valentín de amigos”",
+        taglineSmall: "San Valentín (modo amigos)",
+        taglineBig: "Una mini web… para hacer una pregunta MUY seria 😄",
+        title: "¿Quieres ser mi “San Valentín de Amigos”? 💘🤝",
+        subtitle: "Cero presión. Solo vibes. Y posiblemente comida.",
+        lblFrom: "De",
+        lblTo: "Para",
+        yes: "SÍ 🤝💘",
+        no: "NO 😤",
+        foodTitle: "Pregunta importantísima 🍽️",
+        foodText: "Ok… ahora lo crucial: ¿qué comemos? Elige una:",
+        foodHint: "Elige una opción y luego copia el mensaje o envíalo por WhatsApp.",
+        msgTitle: "Mensaje 💌",
+        msgText: "Envíalo y yo me encargo del resto.",
+        copyBtn: "Copiar mensaje",
+        waBtn: "Enviar por WhatsApp",
+        needFood: "Primero elige una comida 🙂",
+        copied: "Copiado ✅",
+        songTitle: "Nuestra canción 🎶",
+        songText: "Dale play para activar el modo “amigos” 😌",
+        vibePill: "✨ Selector de vibe",
+        vibeTitle: "Elige el vibe y yo me adapto",
+        vibeText: "Cute, gracioso, “solo amigos”, o extra ✨",
+        vibeMiniTitle: "Vibes rápidos",
+        vibeMiniText: "Toca uno para incluirlo en el mensaje:",
+        ps: "PD: Si intentas presionar “NO”… por ley tiene que escaparse."
       }
+    };
 
-      // refresh status text if vibe set
-      if(selectedVibe){
-        status.textContent = format(t("chooseVibe"), {vibe: selectedVibe});
+    // ---------- UI update ----------
+    function applyLang(){
+      enBtn.classList.toggle("active", lang==="en");
+      esBtn.classList.toggle("active", lang==="es");
+
+      const to = (toName.value || "Dani").trim();
+      pill.textContent = COPY[lang].pill(to);
+      chip.textContent = COPY[lang].chip;
+
+      taglineSmall.textContent = COPY[lang].taglineSmall;
+      taglineBig.textContent = COPY[lang].taglineBig;
+
+      title.textContent = COPY[lang].title;
+      subtitle.textContent = COPY[lang].subtitle;
+
+      lblFrom.textContent = COPY[lang].lblFrom;
+      lblTo.textContent = COPY[lang].lblTo;
+
+      yesBtn.textContent = COPY[lang].yes;
+      noBtn.textContent = COPY[lang].no;
+
+      foodTitle.textContent = COPY[lang].foodTitle;
+      foodText.textContent = COPY[lang].foodText;
+      foodHint.textContent = COPY[lang].foodHint;
+
+      msgTitle.textContent = COPY[lang].msgTitle;
+      msgText.textContent = COPY[lang].msgText;
+      copyBtn.textContent = COPY[lang].copyBtn;
+      waBtn.textContent = COPY[lang].waBtn;
+
+      songTitle.textContent = COPY[lang].songTitle;
+      songText.textContent = COPY[lang].songText;
+
+      vibePill.textContent = COPY[lang].vibePill;
+      vibeTitle.textContent = COPY[lang].vibeTitle;
+      vibeText.textContent = COPY[lang].vibeText;
+      vibeMiniTitle.textContent = COPY[lang].vibeMiniTitle;
+      vibeMiniText.textContent = COPY[lang].vibeMiniText;
+      psText.textContent = COPY[lang].ps;
+
+      // Update food button labels based on language
+      document.querySelectorAll("#foodRow .food").forEach(a=>{
+        a.textContent = (lang==="en") ? a.getAttribute("data-choice-en") : a.getAttribute("data-choice-es");
+      });
+
+      // Update vibe button labels based on language
+      document.querySelectorAll("#vibeRow .food").forEach(a=>{
+        a.textContent = (lang==="en") ? a.getAttribute("data-vibe-en") : a.getAttribute("data-vibe-es");
+      });
+
+      // Refresh status
+      if(selectedFood){
+        status.textContent = (lang==="en") ? `Selected: ${selectedFood} ✅` : `Elegido: ${selectedFood} ✅`;
+      } else if (selectedVibe){
+        status.textContent = `Vibe: ${selectedVibe} ✅`;
       }
     }
 
+    // ---------- Cute effects ----------
     function popHeart(times=1){
       for(let i=0;i<times;i++){
         const heart = document.createElement("div");
@@ -665,7 +727,7 @@
       }
     }
 
-    function confettiBurst(n=22){
+    function confettiBurst(n=26){
       const colors = ["#ff3b7a","#ff6aa0","#ffd1e3","#111111","#ffffff"];
       const r = card.getBoundingClientRect();
       for(let i=0;i<n;i++){
@@ -673,35 +735,15 @@
         c.className = "confetti";
         c.style.left = (Math.random() * r.width) + "px";
         c.style.background = colors[Math.floor(Math.random()*colors.length)];
-        c.style.animationDuration = (900 + Math.random()*900) + "ms";
-        c.style.transform = `translateY(0) rotate(${Math.random()*180}deg)`;
+        c.style.animationDuration = (950 + Math.random()*950) + "ms";
         card.appendChild(c);
-        setTimeout(()=>c.remove(), 2200);
-      }
-    }
-
-    function buildMessage(){
-      const from = fromName.value?.trim() || "Me";
-      const to = toName.value?.trim() || "you";
-
-      if(lang === "en"){
-        let msg = `Hey ${to} 💘\nWill you be my Valentine?\n\n`;
-        msg += `Food invite: ${selectedFood || "your choice"}\n`;
-        if(selectedVibe) msg += `Vibe: ${selectedVibe}\n`;
-        msg += `\nReply with what you want and I’ll order it.\n— ${from}`;
-        return msg;
-      } else {
-        let msg = `Hola ${to} 💘\n¿Quieres ser mi San Valentín?\n\n`;
-        msg += `Comidita: ${selectedFood || "lo que tú quieras"}\n`;
-        if(selectedVibe) msg += `Mood: ${selectedVibe}\n`;
-        msg += `\nRespóndeme qué quieres y yo lo pido.\n— ${from}`;
-        return msg;
+        setTimeout(()=>c.remove(), 2400);
       }
     }
 
     // ---------- Runaway NO button ----------
     function moveNoButton(){
-      const area = document.getElementById("actions").getBoundingClientRect();
+      const area = actions.getBoundingClientRect();
       const btn = noBtn.getBoundingClientRect();
       const pad = 6;
       const maxX = area.width - btn.width - pad;
@@ -712,31 +754,30 @@
 
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
-      noBtn.style.right = "auto"; // switch from right-positioned to absolute
+      noBtn.style.right = "auto";
       popHeart(1);
     }
 
-    // initial placement
     noBtn.style.right = "0px";
     noBtn.style.top = "0px";
-
     noBtn.addEventListener("mouseenter", moveNoButton);
     noBtn.addEventListener("focus", moveNoButton);
     noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoButton(); }, {passive:false});
 
-    // ---------- YES reveals ----------
+    // ---------- Reveal on YES ----------
     yesBtn.addEventListener("click", ()=>{
       reveal.style.display = "block";
-      confettiBurst(24);
-      popHeart(10);
+      confettiBurst(28);
+      popHeart(12);
 
       // calm the no button after yes
       noBtn.style.opacity = 0.25;
       noBtn.style.pointerEvents = "none";
-
-      // update pill
-      pill.textContent = format(t("pill"), {to: toName.value || "Danitza"});
+      applyLang();
     });
+
+    // Update pill when name changes
+    toName.addEventListener("input", applyLang);
 
     // ---------- Food selection ----------
     document.querySelectorAll("#foodRow .food").forEach(a=>{
@@ -744,51 +785,67 @@
         e.preventDefault();
         document.querySelectorAll("#foodRow .food").forEach(x=>x.classList.remove("selected"));
         a.classList.add("selected");
-        selectedFood = a.getAttribute("data-choice");
-        status.textContent = selectedFood ? `Selected: ${selectedFood} ✅` : "";
-        if(lang==="es" && selectedFood) status.textContent = `Elegido: ${selectedFood} ✅`;
+        selectedFood = (lang==="en") ? a.getAttribute("data-choice-en") : a.getAttribute("data-choice-es");
+        status.textContent = (lang==="en")
+          ? `Selected: ${selectedFood} ✅`
+          : `Elegido: ${selectedFood} ✅`;
         popHeart(2);
       });
     });
 
     // ---------- Vibe selection ----------
-    document.querySelectorAll(".foodRow .food").forEach(a=>{
-      // only those with data-vibe in sidebar
-      if(!a.hasAttribute("data-vibe")) return;
+    document.querySelectorAll("#vibeRow .food").forEach(a=>{
       a.addEventListener("click", (e)=>{
         e.preventDefault();
-        // unselect vibe siblings (in sidebar container)
-        const container = a.closest(".cardMini");
-        container.querySelectorAll(".food[data-vibe]").forEach(x=>x.classList.remove("selected"));
+        document.querySelectorAll("#vibeRow .food").forEach(x=>x.classList.remove("selected"));
         a.classList.add("selected");
-        selectedVibe = a.getAttribute("data-vibe");
-        status.textContent = format(t("chooseVibe"), {vibe: selectedVibe});
+        selectedVibe = (lang==="en") ? a.getAttribute("data-vibe-en") : a.getAttribute("data-vibe-es");
+        status.textContent = (lang==="en")
+          ? `Vibe: ${selectedVibe} ✅`
+          : `Vibe: ${selectedVibe} ✅`;
         popHeart(2);
       });
     });
 
+    function buildMessage(){
+      const from = (fromName.value || (lang==="en" ? "Me" : "Yo")).trim();
+      const to = (toName.value || "Dani").trim();
+
+      if(lang==="en"){
+        let msg = `Hey ${to} 😄\nWill you be my “Friend Valentine”? 🤝💘\n\n`;
+        msg += `Food plan: ${selectedFood || "your pick"}\n`;
+        if(selectedVibe) msg += `Vibe: ${selectedVibe}\n`;
+        msg += `\nReply with what you want and I’ll sort it.\n— ${from}`;
+        return msg;
+      }else{
+        let msg = `Hola ${to} 😄\n¿Quieres ser mi “San Valentín de Amigos”? 🤝💘\n\n`;
+        msg += `Comida: ${selectedFood || "tú eliges"}\n`;
+        if(selectedVibe) msg += `Vibe: ${selectedVibe}\n`;
+        msg += `\nRespóndeme qué quieres y lo organizo.\n— ${from}`;
+        return msg;
+      }
+    }
+
     // ---------- Copy / WhatsApp ----------
     copyBtn.addEventListener("click", async ()=>{
-      // let them copy even if no food picked, but nudge if empty
       if(!selectedFood){
-        status.textContent = t("chooseFood");
+        status.textContent = COPY[lang].needFood;
         popHeart(1);
         return;
       }
       const msg = buildMessage();
       try{
         await navigator.clipboard.writeText(msg);
-        status.textContent = t("copied");
+        status.textContent = COPY[lang].copied;
         popHeart(3);
       }catch(err){
-        // fallback prompt
-        window.prompt("Copy this message:", msg);
+        window.prompt(lang==="en" ? "Copy this message:" : "Copia este mensaje:", msg);
       }
     });
 
     waBtn.addEventListener("click", ()=>{
       if(!selectedFood){
-        status.textContent = t("chooseFood");
+        status.textContent = COPY[lang].needFood;
         popHeart(1);
         return;
       }
@@ -799,12 +856,11 @@
     });
 
     // ---------- Language toggle ----------
-    enBtn.addEventListener("click", ()=>{ lang="en"; applyLanguage(); });
-    esBtn.addEventListener("click", ()=>{ lang="es"; applyLanguage(); });
+    enBtn.addEventListener("click", ()=>{ lang="en"; applyLang(); });
+    esBtn.addEventListener("click", ()=>{ lang="es"; applyLang(); });
 
-    // Update pill when name changes
-    toName.addEventListener("input", ()=>{ pill.textContent = format(t("pill"), {to: toName.value || "Danitza"}); });
-    applyLanguage();
+    // Initial labels
+    applyLang();
   </script>
 </body>
 </html>
